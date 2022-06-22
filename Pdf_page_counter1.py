@@ -19,13 +19,24 @@ def VVA(x):
     while(x[i].isdigit()):
         integerString+=x[i]
         i+=1
+    print("int string: "+integerString)
     toInt=int(integerString)
     return(toInt)
 sortedList = os.listdir(directory)
-if sortedList[2].startswith("VVA"):
+print(sortedList)
+r =0
+while( r < len(sortedList)):
+    print("checking: "+sortedList[r])
+    if (not (sortedList[r].endswith(".pdf"))) or sortedList[r].endswith(".exe"):
+        print("popped: "+sortedList[r])
+        sortedList.pop(r)
+    r=r+1
+#print(sortedList[1].startswith("VVA",0,3))
+sortedList.pop(0)
+if sortedList[0].startswith("VVA",0,3):
+    print("poo")
    
-    while(not sortedList[0].startswith("VVA")):
-        sortedList.pop(0)
+    
        
     newsortedList= sorted(sortedList,key=VVA)
 else:
